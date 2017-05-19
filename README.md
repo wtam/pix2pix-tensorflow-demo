@@ -40,7 +40,8 @@ python pix2pix.py \
 
 The test run will output an HTML file at `facades_test/index.html` that shows input/output/target image sets.
 
-![Result of using CUHK training model with celebarties test dataset](./dataset/Result_snapshots/Celeb_test_restult_on_CUHKFaces_TrainModel.JPG)
+This is the result on CUHK test data using the CUHK dataset trainnng model
+![Result](./dataset/Result_snapshots/cuhk_test_result.JPG)
 
 ```sh
 # test the model with the CUHK training model + Celebraties test dataset
@@ -50,8 +51,22 @@ python pix2pix.py \
   --input_dir ./dataset/celebfaces/face2edge/test \
   --checkpoint ./dataset/CUHKfaces_train
 ```
-![Result of improvement by combining CUHK & celebarties dataset to training model and test wiht the celebaraties test data again](./dataset/Result_snapshots/Celeb_test_result_on_CUHK_CelebFaces.JPG)
 
+However the result of using CUHK student faces training model with celebarties test dataset are poor
+![Result](./dataset/Result_snapshots/Celeb_test_restult_on_CUHKFaces_TrainModel.JPG)
+
+```sh
+# test the model with the CUHK training model + Celebraties test dataset
+python pix2pix.py \
+  --mode test \
+  --output_dir ./dataset/celebfaces_test \
+  --input_dir ./dataset/celebfaces/face2edge/test \
+  --checkpoint ./dataset/CUHKfaces_train
+  ```
+  
+So I combine the Celebaraties and CUHK both dataset to train, and find the result can highly improved
+
+![Result](./dataset/Result_snapshots/Celeb_test_result_on_CUHK_CelebFaces.JPG)
 
 If you have Docker installed, you can use the provided Docker image to run pix2pix without installing the correct version of Tensorflow:
 
