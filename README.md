@@ -21,7 +21,7 @@ This port is based directly on the torch implementation, and not on an existing 
 ### Getting Started
 
 ```sh
-# train the model (this may take 1-8 hours depending on GPU, on CPU you will be waiting for a bit)
+# train the model (this may take 1-8 hours depending on GPU, on CPU.  I use Azure DSVM with GPU running on NC6, it takes me ~80+ mins to complete the trainning VS on my Surface Pro laptop that take over 6000mins)
 python pix2pix.py \
   --mode train \
   --output_dir ./dataset/CUHKfaces_train \
